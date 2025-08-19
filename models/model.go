@@ -13,6 +13,7 @@ type User struct {
 	Name      string    `json:"name" gorm:"type:varchar(255)"`
 	Nickname  string    `json:"nickname" gorm:"type:varchar(255)"`
 	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
 const (
