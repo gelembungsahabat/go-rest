@@ -69,3 +69,14 @@ func UpdateUser(c *gin.Context) {
 	models.DB.Model(&user).Updates(&updatedUser)
 	c.JSON(http.StatusOK, gin.H{"data": user})
 }
+
+func DeleteUser(c *gin.Context) {
+	var user models.User
+
+	if err := models.DB.Where("id=?", c.Param("id")).First(&user).Error; err != nil {
+		c.AbortWithStatusJSON(http.StatusNotFound, gin.H{"error": "user not found!"})
+		return
+	}
+	models.DB.Delete(&user)
+	c.JSON(http.StatusOK, gin.H{"data": user})
+}

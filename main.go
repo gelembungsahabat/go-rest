@@ -14,5 +14,6 @@ func main() {
 	router.GET("/user/:id", controllers.GetUser)
 	router.POST("/user", controllers.CreateUser)
 	router.PATCH("/user/:id", controllers.UpdateUser)
+	router.DELETE("/user/:id", controllers.DeleteUser)
 	router.Run("localhost:8000")
 }
