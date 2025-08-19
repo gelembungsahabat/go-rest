@@ -1,6 +1,7 @@
 package main
 
 import (
+	"go-rest/models"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -25,6 +26,7 @@ func getUsers(ctx *gin.Context) {
 
 func main() {
 	router := gin.Default()
+	models.ConnectDatabase()
 	router.GET("/users", getUsers)
 	router.Run("localhost:8000")
 }
